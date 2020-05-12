@@ -3,7 +3,7 @@ from discord.ext import commands
 import asyncio
 from discord.utils import get
 import os
-TOKEN = 'NzA5MzkwODU0MjY3MzM4Nzky.XrlN-A.rQjOblrwcsSAlfGQGu6B_fQKuqA' #токен синтоза
+
 bot = commands.Bot(command_prefix='s.') #инициализируем бота с префиксом 's.'
 
 #повторение сообщения
@@ -188,4 +188,5 @@ async def translate(ctx, *, question):  # погуглить
 
 
 
-bot.run(TOKEN) #запуск синтоза
+token = os.environ.get("botkey")
+client.run(str(token))
