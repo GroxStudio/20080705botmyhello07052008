@@ -189,4 +189,4 @@ async def translate(ctx, *, question):  # погуглить
 
 
 token = os.environ.get("botkey")
-client.run(str(token))
+bot.run(str(token))
