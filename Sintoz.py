@@ -180,30 +180,7 @@ async def translate(ctx, *, question):  # погуглить
     await ctx.send(f'Так как кое кто не умеет переводить , я сделал это за него.\n{url}')
 
 
-@bot.command()
-async def ban(ctx, member : discord.User, *, reason=None):
-    embed = discord.Embed(title=f'Пользователь {member} забанен по причине {reason}', color=0x0c0c0c)
-    embed.set_footer(text= f'Забанил:: {ctx.message.author}', icon_url= str(ctx.message.author.avatar_url))
-    embed.timestamp = datetime.datetime.utcnow()
 
-    if member == ctx.message.author:
-        return await ctx.send ("Ты не можешь забанить сам себя.")
-    await ctx.guild.ban(member, reason=reason)
-    await ctx.send(embed=embed)
-    await ctx.message.delete
-
-# комманда, которая кикает пользователей
-@bot.command()
-async def kick(ctx, member : discord.User, *, reason=None):
-    embed = discord.Embed(title=f'Пользователь {member} выгнан по причине {reason}', color=0x0c0c0c)
-    embed.set_footer(text= f'Выгнал: {ctx.message.author}', icon_url= str(ctx.message.author.avatar_url))
-    embed.timestamp = datetime.datetime.utcnow()
-
-    if member == ctx.message.author:
-        return await ctx.send("Ты не можешь выгнать самого себя.")
-    await ctx.guild.kick(member, reason=reason)
-    await ctx.send(embed=embed)
-    await ctx.message.delete
 
 
 
